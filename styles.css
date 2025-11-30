@@ -1,0 +1,70 @@
+:root{
+	--bg:#f6f8fb;
+	--card:#ffffff;
+	--muted:#6b7280;
+	--accent:#0b66a3;
+	--accent-2:#0d9bd6;
+	--radius:10px;
+	--max-width:960px;
+}
+
+*{box-sizing:border-box}
+body{
+	font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	margin:0;
+	color:#222;
+	background: linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.container{max-width:var(--max-width);margin:28px auto;padding:0 16px}
+
+.site-header{background:transparent;padding:18px 0}
+.site-header h1{margin:0;color:var(--accent);font-size:1.25rem}
+
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(12,20,30,0.06);margin-bottom:18px}
+
+h2{margin-top:0;color:#0b3f5f}
+
+.input{display:block;margin:10px 0;padding:10px 12px;width:100%;max-width:520px;border:1px solid #e6edf3;border-radius:8px;background:#fff}
+.input:focus{outline:none;box-shadow:0 0 0 3px rgba(11,102,163,0.08);border-color:var(--accent)}
+
+.actions{display:flex;gap:8px;align-items:center;margin-top:8px}
+.btn{padding:10px 14px;border-radius:8px;border:1px solid transparent;background:var(--card);cursor:pointer}
+.btn-primary{background:linear-gradient(180deg,var(--accent),var(--accent-2));color:#fff;border-color:transparent}
+.btn-ghost{background:transparent;border:1px solid #d1d5db;color:var(--muted)}
+.btn:active{transform:translateY(1px)}
+
+.hidden{display:none!important}
+
+.sales-list{list-style:none;padding:0;margin:8px 0 0 0;display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.sales-list li{background:#fbfdff;border:1px solid #eef5fb;padding:12px;border-radius:8px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:8px}
+.sales-list li .meta{display:flex;gap:8px;align-items:center;width:100%;justify-content:space-between}
+.sales-list li small{color:var(--muted)}
+.sales-list li small{color:var(--muted)}
+
+.site-footer{color:var(--muted);font-size:0.9rem;padding:18px 0;text-align:center}
+
+@media (min-width:720px){
+	.card{padding:22px}
+	.input{max-width:420px}
+
+	/* Form layout: inputs stack on mobile, align in columns on larger screens */
+	#new-sale{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end}
+	#new-sale .input{max-width:100%}
+	#new-sale button{grid-column:3;justify-self:end}
+
+	/* Actions: buttons inline on larger screens */
+	.actions{justify-content:flex-start}
+}
+
+/* Mobile-first form layout */
+#new-sale{display:grid;grid-template-columns:1fr;gap:10px}
+#new-sale button{width:100%}
+
+/* Make action buttons full width on small screens */
+.actions .btn{flex:1;min-width:0}
+
+/* Smooth interactions */
+.btn, .input{transition:all 180ms ease}
